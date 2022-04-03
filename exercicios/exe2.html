@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <h1>Sistema de gastos familiar</h1>
+
+    <p>
+      Crie um objeto que possuirá duas propriedades, ambas do tipo array: <br>
+      * receitas: [] <br>
+      * despesas: []
+
+    </p>
+
+    <p>
+      Agora, crie uma função que irá calcular o total de receitas e despesas e irá mostrar uma mensagem
+      se a família está com saldo positivo ou negativo, seguido do valor do saldo
+    </p>
+  </div>
+
+  <script>
+    const balanco = {
+      receitas: [],
+      despesas: []
+    }
+
+    function generateMockData() {
+      const qtdReceita = Math.random().toFixed(1) * 10;
+      const qtdDespesas = Math.random().toFixed(1) * 10;
+
+      for (i = 0; i < qtdReceita; i++) {
+        balanco.receitas.push(Math.random().toFixed(2) * 1000);
+      }
+
+      for (i = 0; i < qtdDespesas; i++) {
+        balanco.despesas.push(Math.random().toFixed(2) * 1000);
+      }
+    }
+
+    function sum() {
+      let totalReceita = 0;
+      let totalDespesas = 0;
+
+      for (let value of balanco.receitas) {
+        totalReceita += value
+      }
+
+      for (let value of balanco.despesas) {
+        totalDespesas += value
+      }
+
+      const total = totalReceita - totalDespesas;
+
+      return total;
+    }
+
+    function calculateValues() {
+      const total = sum();
+
+      const resultado = total >= 0 ? `O saldo é positivo em R$${total}` : `O saldo é negativo em R$${String(total).replace('-', '')}`;
+
+      console.log(resultado);
+    }
+
+    generateMockData();
+    calculateValues();
+  </script>
+</body>
+
+</html>

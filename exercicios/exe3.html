@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <h1>Celsius em fahrenheit</h1>
+
+    <p>
+      Crie uma função que receba uma string em celsius ou fahrenheit e faça a transformação de uma unidade para outra
+      <br>
+      C = (F - 32) * 5 / 9
+      <br>
+      F = C * 9 / 5 + 32
+    </p>
+  </div>
+
+  <script>
+    function convertToCelsius(temp) {
+      const fahrenheit = temp.replace('F', '');
+      const celsius = (Number(fahrenheit) - 32) * 5 / 9;
+
+      console.log(`${celsius}C`);
+    }
+    
+    function convertToFahrenheit(temp) {
+      const celsius = temp.replace('C', '');
+      const fahrenheit = Number(celsius) * 9 / 5 + 32;
+
+      console.log(`${fahrenheit}F`);
+    }
+
+    function transformTemp(temp) {
+      String(temp).toUpperCase().includes('C') 
+        ? convertToFahrenheit(temp)
+        : convertToCelsius(temp)
+    }
+
+    const temp = Math.random().toFixed(2) * 100;
+    const type = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
+    console.log(`${temp}${type === 1 ? 'C' : 'F'}`);
+
+    transformTemp(`${temp}${type === 1 ? 'C' : 'F'}`);
+
+  </script>
+</body>
+
+</html>
