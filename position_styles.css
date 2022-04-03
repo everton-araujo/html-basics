@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-size: 20px;
+  color: #FFF;
+  font-weight: bold;
+  
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "main aside"
+    "footer footer"
+  ;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-columns: 1fr 150px;
+}
+
+header {
+  padding: 10px;
+  grid-area: header;
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  text-transform: capitalize;
+  grid-area: main;
+  background-color: red;
+}
+
+aside {
+  grid-area: aside;
+  background-color: blue;
+}
+
+footer {
+  grid-area: footer;
+  background-color: gray;
+}
